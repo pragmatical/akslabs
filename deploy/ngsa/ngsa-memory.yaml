@@ -91,3 +91,16 @@ spec:
       name: http
   selector:
     app: ngsa-memory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ngsa-external
+  namespace: ngsa
+spec:
+  selector:
+    app: ngsa-memory
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
