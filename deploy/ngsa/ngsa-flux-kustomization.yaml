@@ -1,0 +1,23 @@
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: ngsa
+  name: ngsa
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: ngsa
+  namespace: ngsa
+spec:
+  interval: 1m0s # detect drift and undo kubectl edits every minute
+  prune: true # remove stale resources from cluster
+  targetNamespace: ngsa # overwrite the ns for resources in path
+  path: ./deploy/ngsa
+  sourceRef:
+    kind: GitRepository
+    name: aks-repo-flux
+    namespace: flux-system # points to namespace where this GitRepository is
