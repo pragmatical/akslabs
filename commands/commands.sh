@@ -39,3 +39,5 @@ rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 cilium hubble port-forward&
 
 hubble status
+
+hubble observe
