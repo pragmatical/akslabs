@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.13.1.58284",
+      "templateHash": "9422991335660757648"
+    }
+  },
+  "parameters": {
+    "RG_Name": {
+      "type": "string",
+      "defaultValue": "rg-k6labs"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "westus3",
+      "allowedValues": [
+        "centralus",
+        "eastus",
+        "westus3"
+      ],
+      "metadata": {
+        "description": "AKS Service, Node Pool, and supporting services (KeyVault, App Gateway, etc) region. This needs to be the same region as the vnet provided in these parameters."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2021-04-01",
+      "name": "[parameters('RG_Name')]",
+      "location": "[parameters('location')]"
+    }
+  ]
+}
