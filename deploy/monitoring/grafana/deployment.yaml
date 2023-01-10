@@ -68,8 +68,8 @@ spec:
           - name: grafana-dashboard-provider
             mountPath: /etc/grafana/provisioning/dashboards/dashboardProvider.yaml
             subPath: dashboardProvider.yaml
-          - name: dashboards-imdb
-            mountPath: /var/lib/grafana/dashboards/imdb
+          - name: dashboards-ngsa
+            mountPath: /var/lib/grafana/dashboards/ngsa
           - name: dashboards-dotnet
             mountPath: /var/lib/grafana/dashboards/dotnet
       volumes:
@@ -89,9 +89,9 @@ spec:
         - name: grafana-dashboard-provider
           configMap:
             name: grafana-dashboard-provider
-        - name: dashboards-imdb
+        - name: dashboards-ngsa
           configMap:
-            name: grafana-dashboards-imdb
+            name: grafana-dashboards-ngsa
         - name: dashboards-dotnet
           configMap:
             name: grafana-dashboards-dotnet
