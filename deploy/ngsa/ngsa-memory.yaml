@@ -29,10 +29,8 @@ spec:
           args: 
           - --in-memory
           - --prometheus
-          - --zone
-          - az-eastus-dev
           - --region
-          - eastus
+          - westus3
           ports:
             - name: http
               containerPort: 8080
