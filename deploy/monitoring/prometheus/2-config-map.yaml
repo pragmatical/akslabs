@@ -38,8 +38,8 @@ data:
         scheme: https
 
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          ca_file: /var/run/secrets/kubernetes.io/azureuser/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/azureuser/token
 
         relabel_configs:
         - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
@@ -51,8 +51,8 @@ data:
         scheme: https
 
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          ca_file: /var/run/secrets/kubernetes.io/azureuser/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/azureuser/token
 
         kubernetes_sd_configs:
         - role: node
@@ -113,8 +113,8 @@ data:
         scheme: https
 
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          ca_file: /var/run/secrets/kubernetes.io/azureuser/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/azureuser/token
 
         kubernetes_sd_configs:
         - role: node
@@ -159,4 +159,3 @@ data:
         - source_labels: [__meta_kubernetes_service_name]
           action: replace
           target_label: kubernetes_name
-          
