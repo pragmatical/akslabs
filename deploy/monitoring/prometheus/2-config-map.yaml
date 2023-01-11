@@ -38,8 +38,8 @@ data:
         scheme: https
 
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/azureuser/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/azureuser/token
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 
         relabel_configs:
         - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
@@ -51,8 +51,8 @@ data:
         scheme: https
 
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/azureuser/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/azureuser/token
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 
         kubernetes_sd_configs:
         - role: node
@@ -99,22 +99,25 @@ data:
         static_configs:
           - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
 
-      - job_name: 'csapp'
-        metrics_path: '/csapp/metrics'
+      - job_name: 'imdb'
         static_configs:
-          - targets: [ 'csapp.csapp.svc.cluster.local:8080' ]
+          - targets: [ 'imdb.imdb.svc.cluster.local:8080' ]
 
-      - job_name: 'webv'
+      - job_name: 'webv-imdb'
         static_configs:
-          - targets: [ 'webv.csapp.svc.cluster.local:8080' ]
+          - targets: [ 'webv.imdb.svc.cluster.local:8080' ]
+
+      - job_name: 'webv-heartbeat'
+        static_configs:
+          - targets: [ 'webv-heartbeat.heartbeat.svc.cluster.local:8080' ]
 
       - job_name: 'kubernetes-cadvisor'
 
         scheme: https
 
         tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/azureuser/ca.crt
-        bearer_token_file: /var/run/secrets/kubernetes.io/azureuser/token
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 
         kubernetes_sd_configs:
         - role: node
