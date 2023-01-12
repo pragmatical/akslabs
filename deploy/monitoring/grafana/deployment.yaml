@@ -72,9 +72,6 @@ spec:
             - name: grafana-datasources
               mountPath: /etc/grafana/provisioning/datasources
               readOnly: false
-            - name: grafana-config
-              mountPath: /etc/grafana/grafana.ini
-              subPath: grafana.ini
             - name: grafana-dashboard-provider
               mountPath: /etc/grafana/provisioning/dashboards/dashboardProvider.yaml
               subPath: dashboardProvider.yaml             
@@ -86,9 +83,6 @@ spec:
           configMap:
               defaultMode: 420
               name: grafana-datasources
-        - name: grafana-config
-          configMap:
-            name: grafana-config
         - name: grafana-dashboard-provider
           configMap:
             name: grafana-dashboard-provider

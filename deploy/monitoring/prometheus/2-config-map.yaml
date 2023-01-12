@@ -99,17 +99,21 @@ data:
         static_configs:
           - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
 
-      - job_name: 'imdb'
-        static_configs:
-          - targets: [ 'imdb.imdb.svc.cluster.local:8080' ]
-
-      - job_name: 'webv-imdb'
-        static_configs:
-          - targets: [ 'webv.imdb.svc.cluster.local:8080' ]
-
-      - job_name: 'webv-heartbeat'
-        static_configs:
-          - targets: [ 'webv-heartbeat.heartbeat.svc.cluster.local:8080' ]
+      - job_name: 'ngsa-memory'
+        metrics_path: /metrics
+        kubernetes_sd_configs:
+        - role: pod
+          namespaces:
+            names:
+            - ngsa
+          selectors:
+            - role: "pod"
+              label: "app=ngsa-memory"
+              field: "status.phase=Running"
+        relabel_configs:
+        - source_labels: [ __meta_kubernetes_pod_name ]
+          action: replace
+          target_label: instance
 
       - job_name: 'kubernetes-cadvisor'
 
