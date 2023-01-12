@@ -118,9 +118,9 @@ spec:
         - name: grafana-dashboard-provider
           configMap:
             name: grafana-dashboard-provider
-        - name: dashboards-imdb
+        - name: dashboards-ngsa
           configMap:
-            name: grafana-dashboards-imdb
+            name: grafana-dashboards-ngsa
         - name: dashboards-dotnet
           configMap:
             name: grafana-dashboards-dotnet
