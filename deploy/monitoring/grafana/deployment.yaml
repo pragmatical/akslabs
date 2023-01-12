@@ -49,29 +49,48 @@ spec:
         supplementalGroups:
           - 0
       containers:
-      - name: grafana
-        image: grafana/grafana:8.5.5
-        imagePullPolicy: Always
-        env:
-        - name: PROMETHEUS_QUERY_URL # Use default query
-          value: "http://prometheus-server.monitoring.svc:9090"
-        ports:
         - name: grafana
-          containerPort: 3000
-        resources:
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-          requests:
-            memory: "256Mi"
-            cpu: "200m"
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
-          runAsNonRoot: true
-          runAsUser: 10001
+          image: grafana/grafana:8.5.5
+          imagePullPolicy: Always
+          env:
+          - name: PROMETHEUS_QUERY_URL # Use default query
+            value: "http://prometheus-server.monitoring.svc:9090"
+          ports:
+            - containerPort: 3000
+              name: http-grafana
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /robots.txt
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 3000
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "200m"
+            requests: 
+              memory: "128Mi"
+              cpu: "50m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 10001
         volumeMounts:
           - name: grafana-secrets
             mountPath: /etc/config/secrets
