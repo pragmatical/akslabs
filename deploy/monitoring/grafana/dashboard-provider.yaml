@@ -10,7 +10,7 @@ data:
   dashboardProvider.yaml: |
     apiVersion: 1
     providers:
-    - name: ngsa-memory
+    - name: ngsa-prometheus
       options:
         path: /var/lib/grafana/dashboards/ngsa
       orgId: 1
