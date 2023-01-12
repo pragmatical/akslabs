@@ -50,7 +50,11 @@ spec:
           - 0
       containers:
       - name: grafana
-        image: grafana/grafana:8.1.1
+        image: grafana/grafana:8.5.5
+        imagePullPolicy: Always
+        env:
+        - name: PROMETHEUS_QUERY_URL # Use default query
+          value: "http://prometheus-server.monitoring.svc:9090"
         ports:
         - name: grafana
           containerPort: 3000
@@ -61,13 +65,13 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "200m"
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
-            runAsNonRoot: true
-            runAsUser: 10001
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          runAsNonRoot: true
+          runAsUser: 10001
         volumeMounts:
           - name: grafana-secrets
             mountPath: /etc/config/secrets
