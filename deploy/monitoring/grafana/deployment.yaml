@@ -12,32 +12,6 @@ spec:
       storage: 1Gi
 
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: grafana-config
-  namespace: monitoring
-data:
-  grafana.ini:  |
-    [security]
-    admin_user = $__file{/etc/config/secrets/username}
-    admin_password = $__file{/etc/config/secrets/password}
-    [dashboards]
-    default_home_dashboard_path = "/var/lib/grafana/dashboards/imdb/imdb.json"
-
----
-
-apiVersion: v1
-kind: Secret
-metadata:
-  name: grafana-secrets
-  namespace: monitoring
-type: Opaque
-data:
-  username: YWRtaW4=
-  password: a3ViZWNvbjEwMQ==
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -7,4 +7,4 @@ resources:
 - ./monitoring/namespaces.yaml
 - ./monitoring/fluentbit/fluentbit-flux-kustomization.yaml
 - ./monitoring/prometheus/prometheus-flux-kustomization.yaml
-- ./monitoring/grafana/grafana-flux-kustomization.yaml
+#- ./monitoring/grafana/grafana-flux-kustomization.yaml
