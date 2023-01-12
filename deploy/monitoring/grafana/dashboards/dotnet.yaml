@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana-dashboards-dotnet
-  namespace: monitoring
+  namespace: visualization
   labels:
     app: grafana
 data:
