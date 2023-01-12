@@ -40,7 +40,7 @@ spec:
       name: grafana
       labels:
         app: grafana
-spec:
+    spec:
       automountServiceAccountToken: false
       securityContext:
         fsGroup: 472
