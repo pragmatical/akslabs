@@ -41,11 +41,6 @@ spec:
       labels:
         app: grafana
     spec:
-      securityContext:
-        fsGroup: 0
-        runAsGroup: 0
-        runAsNonRoot: true
-        runAsUser: 472 
       containers:
         - name: grafana
           image: grafana/grafana:8.5.5
@@ -82,6 +77,11 @@ spec:
             requests: 
               memory: "128Mi"
               cpu: "50m"
+          securityContext:
+            fsGroup: 0
+            runAsGroup: 0
+            runAsNonRoot: true
+            runAsUser: 472 
           volumeMounts:
             - name: grafana-secrets
               mountPath: /etc/config/secrets
