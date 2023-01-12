@@ -41,6 +41,13 @@ spec:
       labels:
         app: grafana
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 472
+        seccompProfile:
+          type: RuntimeDefault
+        supplementalGroups:
+          - 0
       containers:
       - name: grafana
         image: grafana/grafana:8.1.1
@@ -49,11 +56,18 @@ spec:
           containerPort: 3000
         resources:
           limits:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: "512Mi"
+            cpu: "500m"
           requests:
             memory: "256Mi"
             cpu: "200m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 10001
         volumeMounts:
           - name: grafana-secrets
             mountPath: /etc/config/secrets
