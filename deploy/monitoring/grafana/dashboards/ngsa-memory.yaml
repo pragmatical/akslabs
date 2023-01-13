@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-dashboards-ngsa-prometheus
+  name: grafana-dashboards-ngsa
   namespace: monitoring
   labels:
     app: grafana
