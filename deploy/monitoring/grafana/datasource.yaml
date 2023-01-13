@@ -16,6 +16,7 @@ data:
                 "type": "prometheus",
                 "url": "http://prometheus-service.monitoring.svc:8080",
                 "version": 1
+                "uid":"r2YfG174z"
             }
         ]
     }
