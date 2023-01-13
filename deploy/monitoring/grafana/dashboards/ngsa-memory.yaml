@@ -645,7 +645,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "r2YfG174z"
               },
               "definition": "label_values(NgsaAppSummary{},region)",
               "hide": 0,
