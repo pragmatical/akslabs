@@ -88,7 +88,7 @@ spec:
             name: grafana-dashboard-provider
         - name: dashboards-ngsa
           configMap:
-            name: grafana-dashboards-ngsa
+            name: grafana-dashboards-ngsa-prometheus
         - name: dashboards-dotnet
           configMap:
             name: grafana-dashboards-dotnet
