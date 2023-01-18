@@ -71,7 +71,7 @@ spec:
               mountPath: /var/lib/grafana/dashboards/dotnet
             - name: dashboards-ngsa-fluentbit
               mountPath: /var/lib/grafana/dashboards/ngsa-fluentbit     
-            - name: dashboards-prom2.0
+            - name: dashboards-prometheus
               mountPath: /var/lib/grafana/dashboards/prometheus          
             - name: grafana-datasources
               mountPath: /etc/grafana/provisioning/datasources
@@ -101,7 +101,7 @@ spec:
             name: grafana-dashboards-ngsa-fluentbit
         - name: dashboards-prom2.0
           configMap:
-            name: grafana-dashboards-prom2.0
+            name: grafana-dashboards-prometheus
         - name: grafana-secrets
           secret:
             secretName: grafana-secrets
