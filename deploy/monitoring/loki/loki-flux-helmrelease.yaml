@@ -20,5 +20,5 @@ spec:
       chart: loki
       sourceRef:
         kind: HelmRepository
-        name: loki
+        name: grafana
       version: 4.3.0
