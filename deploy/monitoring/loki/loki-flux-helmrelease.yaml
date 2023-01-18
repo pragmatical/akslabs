@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: loki-repo
-  namespace: logging
+  name: grafana
+  namespace: flux-system
 spec:
   interval: 1m0s
   url: https://grafana.github.io/helm-charts
@@ -14,6 +14,7 @@ metadata:
   name: loki-release
   namespace: logging
 spec:
+  interval: 1m0s
   chart:
     spec:
       chart: loki
@@ -21,4 +22,3 @@ spec:
         kind: HelmRepository
         name: loki
       version: 4.3.0
-  interval: 1m0s
