@@ -28,7 +28,7 @@ data:
       orgId: 1
       type: file
       disableDeletion: false
-    - name: prometheus2.0
+    - name: prometheus
       options:
         path: /var/lib/grafana/dashboards/prometheus
       orgId: 1
