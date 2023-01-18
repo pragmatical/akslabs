@@ -4,9 +4,8 @@ metadata:
   name: log-config
   namespace: logging
 data:
-  Region: "Dev"
+  Region: "westus3"
   Zone: "Dev"
-  webvLog: "webvdev"
   ngsaLog: "ngsadev"
 
 ---
