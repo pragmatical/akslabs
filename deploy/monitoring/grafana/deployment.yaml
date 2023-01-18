@@ -99,7 +99,7 @@ spec:
         - name: dashboards-ngsa-fluentbit
           configMap:
             name: grafana-dashboards-ngsa-fluentbit
-        - name: dashboards-prom2.0
+        - name: dashboards-prometheus
           configMap:
             name: grafana-dashboards-prometheus
         - name: grafana-secrets
