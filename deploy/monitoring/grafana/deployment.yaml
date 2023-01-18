@@ -68,7 +68,9 @@ spec:
             - name: dashboards-ngsa
               mountPath: /var/lib/grafana/dashboards/ngsa
             - name: dashboards-dotnet
-              mountPath: /var/lib/grafana/dashboards/dotnet              
+              mountPath: /var/lib/grafana/dashboards/dotnet
+            - name: dashboards-ngsa-fluentbit
+              mountPath: /var/lib/grafana/dashboards/ngsa-fluentbit              
             - name: grafana-datasources
               mountPath: /etc/grafana/provisioning/datasources
               readOnly: false
@@ -92,6 +94,9 @@ spec:
         - name: dashboards-dotnet
           configMap:
             name: grafana-dashboards-dotnet
+        - name: dashboards-ngsa-fluentbit
+          configMap:
+            name: grafana-dashboards-ngsa-fluentbit
         - name: grafana-secrets
           secret:
             secretName: grafana-secrets
