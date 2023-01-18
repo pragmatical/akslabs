@@ -21,4 +21,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: grafana
+        namespace: flux-system
       version: 4.3.0
