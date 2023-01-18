@@ -1,17 +1,4 @@
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grafana-pvc
-  namespace: visualization 
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -63,8 +50,6 @@ spec:
               cpu: 250m
               memory: 750Mi
           volumeMounts:
-            - name: grafana-storage
-              mountPath: /var/lib/grafana
             - name: dashboards-ngsa
               mountPath: /var/lib/grafana/dashboards/ngsa
             - name: dashboards-dotnet
@@ -80,9 +65,6 @@ spec:
               mountPath: /etc/grafana/provisioning/dashboards/dashboardProvider.yaml
               subPath: dashboardProvider.yaml             
       volumes:
-        - name: grafana-storage
-          persistentVolumeClaim:
-            claimName: grafana-pvc
         - name: grafana-datasources
           configMap:
               defaultMode: 420
