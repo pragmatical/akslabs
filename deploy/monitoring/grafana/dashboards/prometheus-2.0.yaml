@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-dashboards-ngsa
+  name: grafana-dashboards-prom2.0
   namespace: visualization
   labels:
     app: grafana

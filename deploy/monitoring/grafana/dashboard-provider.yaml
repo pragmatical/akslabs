@@ -23,9 +23,14 @@ data:
       type: file
       disableDeletion: false
     - name: ngsa-fluentbit
-      folder: NGSA
       options:
         path: /var/lib/grafana/dashboards/ngsa-fluentbit
+      orgId: 1
+      type: file
+      disableDeletion: false
+    - name: prometheus2.0
+      options:
+        path: /var/lib/grafana/dashboards/prometheus
       orgId: 1
       type: file
       disableDeletion: false
