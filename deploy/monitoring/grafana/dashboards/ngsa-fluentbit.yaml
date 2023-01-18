@@ -13,7 +13,10 @@ data:
             "list": [
               {
                 "builtIn": 1,
-                "datasource": "Prometheus",
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "r2YfG174z"
+                },
                 "enable": true,
                 "hide": true,
                 "iconColor": "rgba(0, 211, 255, 1)",
@@ -36,7 +39,10 @@ data:
               "bars": false,
               "dashLength": 10,
               "dashes": false,
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "links": []
@@ -130,7 +136,10 @@ data:
               "bars": false,
               "dashLength": 10,
               "dashes": false,
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "links": []
@@ -223,7 +232,10 @@ data:
               "bars": false,
               "dashLength": 10,
               "dashes": false,
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "links": []
@@ -315,7 +327,10 @@ data:
               "bars": false,
               "dashLength": 10,
               "dashes": false,
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "links": []
@@ -410,7 +425,10 @@ data:
               "bars": false,
               "dashLength": 10,
               "dashes": false,
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "links": []
@@ -515,7 +533,10 @@ data:
               "bars": false,
               "dashLength": 10,
               "dashes": false,
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "links": []
@@ -606,7 +627,10 @@ data:
               }
             },
             {
-              "datasource": "Prometheus",
+              "datasource": {
+                  "type": "prometheus",
+                  "uid": "r2YfG174z"
+              },
               "fieldConfig": {
                 "defaults": {
                   "color": {
@@ -699,7 +723,10 @@ data:
                     "dimensionFilters": [],
                     "timeGrain": "auto"
                   },
-                  "datasource": "Prometheus",
+                  "datasource": {
+                      "type": "prometheus",
+                      "uid": "r2YfG174z"
+                  },
                   "expr": "up{job=\"fluentbit\"} == 1",
                   "queryType": "Azure Monitor",
                   "refId": "A",
