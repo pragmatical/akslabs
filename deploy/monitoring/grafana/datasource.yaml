@@ -9,7 +9,7 @@ data:
         "apiVersion": 1,
         "datasources": [
             {
-               "access":"proxy",
+                "access":"proxy",
                 "editable": true,
                 "name": "prometheus",
                 "orgId": 1,
@@ -17,6 +17,17 @@ data:
                 "url": "http://prometheus-service.monitoring.svc:8080",
                 "version": 1,
                 "uid":"r2YfG174z"
+            },
+            {
+                "access":"proxy",
+                "editable": true,
+                "name": "loki",
+                "orgId": 1,
+                "type": "loki",
+                "url": "http://loki:3100",
+                "version": 1,
+                "basicAuth": false,
+                "isDefault": true
             }
         ]
     }
