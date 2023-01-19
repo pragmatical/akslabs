@@ -8,4 +8,6 @@ resources:
 - ./monitoring/fluentbit/fluentbit-flux-kustomization.yaml
 - ./monitoring/prometheus/prometheus-flux-kustomization.yaml
 - ./monitoring/grafana/grafana-flux-kustomization.yaml
-- ./monitoring/loki/loki-flux-kustomization.yaml
+- ./monitoring/loki/loki-values.yaml
+- ./monitoring/loki/loki-flux-helmrelease.yaml
+
