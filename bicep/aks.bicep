@@ -7,7 +7,7 @@ param location string = resourceGroup().location
 @description('Optional DNS prefix to use with hosted Kubernetes API server FQDN.')
 param dnsPrefix string = clusterName
 
-@description('The location of the Managed Cluster resource.')
+@description('Kubernetes Version.')
 param k8sversion string = '1.24.6'
 
 @description('Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize.')

@@ -41,3 +41,20 @@ cilium hubble port-forward&
 hubble status
 
 hubble observe
+
+
+#Create storage account 
+
+export STORAGE_RESOURCE_GROUP_NAME=rg-k6labs-storage
+export STORAGE_ACCT_NAME=k6labssa
+
+az group create \
+  --name ${STORAGE_RESOURCE_GROUP_NAME} \
+  --location ${LOCATION}
+
+az storage account create \
+  --name ${STORAGE_ACCT_NAME} \
+  --resource-group ${STORAGE_RESOURCE_GROUP_NAME} \
+  --location ${LOCATION} \
+  --sku Standard_LRS \
+  --kind StorageV2
