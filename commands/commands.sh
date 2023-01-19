@@ -58,3 +58,6 @@ az storage account create \
   --location ${LOCATION} \
   --sku Standard_LRS \
   --kind StorageV2
+
+az identity create -g ${STORAGE_RESOURCE_GROUP_NAME} -n lokiasidentity
+

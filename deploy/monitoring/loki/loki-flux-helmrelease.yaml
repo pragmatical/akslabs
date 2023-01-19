@@ -23,3 +23,14 @@ spec:
         name: grafana
         namespace: flux-system
       version: 4.3.0
+  values:
+      service:
+        grpcService: backend
+      resources:
+        requests:
+          cpu: 100m
+          memory: 64Mi
+  valuesFrom:
+      - kind: ConfigMap
+        name: loki-values
+        valuesKey: loki-values.yaml
