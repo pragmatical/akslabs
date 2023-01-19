@@ -8,54 +8,25 @@ metadata:
 data:
   loki-values.yaml: |-
     loki:
-      config: |
-        auth_enabled: false
-
-        server:
-          http_listen_port: 3100
-
-        common:
-          path_prefix: /var/loki
-          
-          storage:
-            azure:
-              use_managed_identity: true
-              account_name: k6labssa
-              container_name: loki
-              user_assigned_id: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
-
-          ring:
-            kvstore:
-              store: memberlist
-
-        compactor:
-          working_directory: /var/loki/retention
-          shared_store: azure
-          retention_enabled: true
-
-        limits_config:
-          retention_period: 168h
-
-        memberlist:
-          join_members:
-            - {{ include "loki.name" . }}-memberlist
-
+      enabled: true
+      config:
         schema_config:
           configs:
-          - from: "2020-12-11"
-            index:
-              period: 24h
-              prefix: index_
-            object_store: azure
-            schema: v11
-            store: boltdb-shipper
-
+            - from: 2020-12-22
+              store: boltdb-shipper
+              object_store: azure
+              schema: v11
+              index:
+                prefix: loki_index_
+                period: 24h
         storage_config:
           boltdb_shipper:
-            active_index_directory: /var/loki/boltdb-shipper-active
-            cache_location: /var/loki/boltdb-shipper-cache
-            cache_ttl: 24h
+            active_index_directory: /data/loki/index
             shared_store: azure
-
-          filesystem:
-            directory: /var/loki/chunks
+            cache_location: /data/loki/boltdb-cache
+          azure:
+            use_managed_identity: true
+            account_name: k6labssa
+            container_name: loki
+            user_assigned_id: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
+      
