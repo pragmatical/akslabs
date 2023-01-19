@@ -30,7 +30,3 @@ spec:
         requests:
           cpu: 100m
           memory: 64Mi
-  valuesFrom:
-      - kind: ConfigMap
-        name: loki-values
-        valuesKey: loki-values.yaml
