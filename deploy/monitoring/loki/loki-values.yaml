@@ -6,7 +6,7 @@ metadata:
     name: loki-values
   namespace: logging
 data:
-  values.yml: |-
+  loki-values.yaml: |-
     loki:
       config: |
         auth_enabled: false
