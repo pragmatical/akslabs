@@ -30,6 +30,10 @@ data:
     [OUTPUT]
         Name            stdout
         Match           kube.var.log.containers.ngsa*_ngsa*
+    [OUTPUT]
+        Name            loki
+        Match           *
+        labels job=fluentbit, $sub['stream']
   input-kubernetes.conf: |
     [INPUT]
         Name                tail
