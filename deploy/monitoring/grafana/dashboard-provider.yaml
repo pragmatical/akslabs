@@ -24,7 +24,7 @@ data:
       disableDeletion: false
     - name: ngsa-fluentbit
       options:
-        path: /var/lib/grafana/dashboards/ngsa-fluentbit
+        path: /var/lib/grafana/dashboards/ngsa-loki
       orgId: 1
       type: file
       disableDeletion: false
