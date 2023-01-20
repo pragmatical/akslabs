@@ -61,3 +61,10 @@ az storage account create \
 
 az identity create -g ${STORAGE_RESOURCE_GROUP_NAME} -n lokiasidentity
 
+wget http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=d3c46a21-0699-4e8e-8bbf-eb33110a8184&resource=https%3A%2F%2Fk6labssa.blob.core.windows.net
+
+
+
+http://169.254.169.254/metadata/identity/oauth2/token?audience=https%3A%2F%2Fk6labssa.blob.core.windows.net
+
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?client_id=4f02778a-3162-4998-8743-1d70c391015e&resource=https://k6labssa.blob.core.windows.net&api-version=2018-02-01' -H "Metadata: true"

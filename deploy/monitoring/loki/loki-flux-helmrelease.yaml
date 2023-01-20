@@ -35,4 +35,4 @@ spec:
           type: azure
           azure:
             accountName: k6labssa
-            userAssignedId: d3c46a21-0699-4e8e-8bbf-eb33110a8184
+            userAssignedId: f724bc60-bc7d-4d49-a802-29283b99249d
