@@ -5,9 +5,9 @@ resources:
 - ./ngsa/namespaces.yaml
 - ./ngsa/ngsa-flux-kustomization.yaml
 - ./monitoring/namespaces.yaml
-- ./monitoring/fluentbit/fluentbit-flux-kustomization.yaml
 - ./monitoring/prometheus/prometheus-flux-kustomization.yaml
-- ./monitoring/grafana/grafana-flux-kustomization.yaml
-- ./monitoring/loki/loki-values.yaml
-- ./monitoring/loki/loki-flux-helmrelease.yaml
-
+- ./monitoring/grafana/grafana/grafana-flux-kustomization.yaml
+- ./monitoring/grafana/loki/loki-values.yaml
+- ./monitoring/grafana/loki/loki-flux-helmrelease.yaml
+- ./monitoring/grafana/promtail/promtail-values.yaml
+- ./monitoring/grafana/promtail/promtail-flux-helmrelease.yaml
