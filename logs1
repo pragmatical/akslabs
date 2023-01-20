@@ -1,0 +1,5 @@
+level=info ts=2023-01-20T14:49:40.823148519Z caller=promtail.go:123 msg="Reloading configuration file" md5sum=d2ea965584ad2290fae73d5b8ea2cff8
+level=info ts=2023-01-20T14:49:40.823541216Z caller=kubernetes.go:326 component=discovery discovery=kubernetes msg="Using pod service account via in-cluster config"
+level=info ts=2023-01-20T14:49:40.824272712Z caller=server.go:323 http=[::]:9080 grpc=[::]:43843 msg="server listening on addresses"
+level=info ts=2023-01-20T14:49:40.824376211Z caller=main.go:171 msg="Starting Promtail" version="(version=2.7.1, branch=HEAD, revision=e0af1cc8a)"
+level=warn ts=2023-01-20T14:49:40.824405911Z caller=promtail.go:220 msg="enable watchConfig"
