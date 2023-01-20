@@ -49,10 +49,11 @@ roleRef:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: promtail-daemonset
+  name: promtail
   namespace: promtail
   labels:
     app.kubernetes.io/name: promtail
+
 spec:
   selector:
     matchLabels:
