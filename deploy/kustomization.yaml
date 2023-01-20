@@ -7,6 +7,5 @@ resources:
 - ./monitoring/namespaces.yaml
 - ./monitoring/prometheus/prometheus-flux-kustomization.yaml
 - ./monitoring/grafana/grafana-flux-kustomization.yaml
-- ./monitoring/loki/loki-values.yaml
 - ./monitoring/loki/loki-flux-helmrelease.yaml
 - ./monitoring/promtail/promtail-flux-kustomization.yaml
