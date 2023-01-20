@@ -35,4 +35,4 @@ spec:
           type: azure
           azure:
             accountName: k6labssa
-            userAssignedId: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
+            userAssignedId: d3c46a21-0699-4e8e-8bbf-eb33110a8184
