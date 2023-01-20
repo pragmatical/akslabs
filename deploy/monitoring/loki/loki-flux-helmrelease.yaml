@@ -31,6 +31,7 @@ spec:
           cpu: 100m
           memory: 64Mi
       loki:
+        auth_enabled: false
         storage:
           type: azure
           azure:
