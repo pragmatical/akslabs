@@ -4,6 +4,9 @@ kind: ClusterRole
 metadata:
   name: promtail-clusterrole
   namespace: promtail
+  labels:
+    k8s-app: promtail
+    addonmanager.kubernetes.io/mode: Reconcile
 rules:
   - apiGroups: [""]
     resources:
@@ -21,11 +24,18 @@ kind: ServiceAccount
 metadata:
   name: promtail-serviceaccount
   namespace: promtail
+  labels:
+    k8s-app: promtail
+    addonmanager.kubernetes.io/mode: Reconcile
+
 --- # Rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: promtail-clusterrolebinding
+  labels:
+    k8s-app: promtail
+    addonmanager.kubernetes.io/mode: Reconcile
 subjects:
     - kind: ServiceAccount
       name: promtail-serviceaccount
@@ -39,16 +49,17 @@ roleRef:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: promtail-daemonset
+  app.kubernetes.io/name: promtail-daemonset
   namespace: promtail
 spec:
   selector:
     matchLabels:
-      name: promtail
+      app.kubernetes.io/name: promtail
   template:
     metadata:
+      name: promtail
       labels:
-        name: promtail
+        app.kubernetes.io/name: promtail
     spec:
       serviceAccount: promtail-serviceaccount
       containers:
@@ -74,6 +85,7 @@ spec:
       - name: promtail-config
         configMap:
           name: promtail-config
+
 --- # configmap.yaml
 apiVersion: v1
 kind: ConfigMap
