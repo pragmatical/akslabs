@@ -87,7 +87,7 @@ data:
       grpc_listen_port: 0
 
     clients:
-    - url: https://loki-gateway.logging/loki/api/v1/push
+    - url: https://loki-gateway.loki/loki/api/v1/push
 
     positions:
       filename: /tmp/positions.yaml
