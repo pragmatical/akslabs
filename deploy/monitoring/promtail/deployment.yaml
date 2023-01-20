@@ -51,6 +51,8 @@ kind: DaemonSet
 metadata:
   name: promtail-daemonset
   namespace: promtail
+  labels:
+    app.kubernetes.io/name: promtail
 spec:
   selector:
     matchLabels:
