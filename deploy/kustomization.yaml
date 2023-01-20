@@ -9,5 +9,4 @@ resources:
 - ./monitoring/grafana/grafana/grafana-flux-kustomization.yaml
 - ./monitoring/grafana/loki/loki-values.yaml
 - ./monitoring/grafana/loki/loki-flux-helmrelease.yaml
-- ./monitoring/grafana/promtail/promtail-values.yaml
-- ./monitoring/grafana/promtail/promtail-flux-helmrelease.yaml
+- ./monitoring/grafana/promtail/promtail-flux-kustomization.yaml
