@@ -1,9 +1,9 @@
 ---
----
 apiVersion: v1
 kind: Namespace
 metadata:
   name: loki
+
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -15,25 +15,9 @@ metadata:
 data:
   loki-values.yaml: |-
     loki:
-      enabled: true
-      config:
-        schema_config:
-          configs:
-            - from: 2020-12-22
-              store: boltdb-shipper
-              object_store: azure
-              schema: v11
-              index:
-                prefix: loki_index_
-                period: 24h
-        storage_config:
-          boltdb_shipper:
-            active_index_directory: /data/loki/index
-            shared_store: azure
-            cache_location: /data/loki/boltdb-cache
-          azure:
-            use_managed_identity: true
-            account_name: k6labssa
-            container_name: loki
-            user_assigned_id: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
-      
+      storage:
+        type: azure
+        azure:
+          accountName: k6labssa
+          userAssignedId: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
+     
