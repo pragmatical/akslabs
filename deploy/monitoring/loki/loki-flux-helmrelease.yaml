@@ -30,8 +30,9 @@ spec:
         requests:
           cpu: 100m
           memory: 64Mi
-      storage:
-        type: azure
-        azure:
-          accountName: k6labssa
-          userAssignedId: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
+      loki:
+        storage:
+          type: azure
+          azure:
+            accountName: k6labssa
+            userAssignedId: /subscriptions/dfc66ce2-45ce-43c5-a084-906790c73ed2/resourcegroups/rg-k6labs-storage/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lokiasidentity
