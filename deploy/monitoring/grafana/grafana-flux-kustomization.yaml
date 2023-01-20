@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 1m0s # detect drift and undo kubectl edits every minute
   prune: true # remove stale resources from cluster
-  path: ./deploy/monitoring/grafana/grafana
+  path: ./deploy/monitoring/grafana
   sourceRef:
     kind: GitRepository
     name: aks-repo-flux
