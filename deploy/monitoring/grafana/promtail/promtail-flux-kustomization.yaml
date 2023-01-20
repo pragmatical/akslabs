@@ -1,37 +1,14 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
 metadata:
   name: grafana
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  url: https://grafana.github.io/helm-charts
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: loki
   namespace: logging
 spec:
-  interval: 1m0s
-  chart:
-    spec:
-      chart: loki
-      sourceRef:
-        kind: HelmRepository
-        name: grafana
-        namespace: flux-system
-      version: 4.3.0
-  values:
-      service:
-        grpcService: backend
-      resources:
-        requests:
-          cpu: 100m
-          memory: 64Mi
-  valuesFrom:
-    - kind: ConfigMap
-      name: loki-values
-      valuesKey: loki-values.yaml
-
+  interval: 1m0s # detect drift and undo kubectl edits every minute
+  prune: true # remove stale resources from cluster
+  path: ./deploy/monitoring/grafana/promtail
+  sourceRef:
+    kind: GitRepository
+    name: aks-repo-flux
+    namespace: flux-system # points to namespace where this GitRepository is
