@@ -53,9 +53,7 @@ spec:
             - name: dashboards-ngsa
               mountPath: /var/lib/grafana/dashboards/ngsa
             - name: dashboards-dotnet
-              mountPath: /var/lib/grafana/dashboards/dotnet
-            - name: dashboards-ngsa-fluentbit
-              mountPath: /var/lib/grafana/dashboards/ngsa-fluentbit     
+              mountPath: /var/lib/grafana/dashboards/dotnet  
             - name: dashboards-prometheus
               mountPath: /var/lib/grafana/dashboards/prometheus          
             - name: grafana-datasources
@@ -78,9 +76,6 @@ spec:
         - name: dashboards-dotnet
           configMap:
             name: grafana-dashboards-dotnet
-        - name: dashboards-ngsa-fluentbit
-          configMap:
-            name: grafana-dashboards-ngsa-fluentbit
         - name: dashboards-prometheus
           configMap:
             name: grafana-dashboards-prometheus
